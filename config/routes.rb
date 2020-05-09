@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  resources :categories
+
+  # create custom route for signup page
+  get '/signup' => 'users#new'
+   
+
+
+  # resources :categories
   resources :comments
   resources :users
   resources :posts
