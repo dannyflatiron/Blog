@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+  #login routes
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+
+
+  #logout routes
+  delete '/logout' => 'sessions#destroy'
 
   # resources :categories
   resources :comments
