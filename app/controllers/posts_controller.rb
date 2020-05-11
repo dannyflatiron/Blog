@@ -2,7 +2,9 @@ class PostsController < ApplicationController
 
     def index
         @post = Post.all
+        # binding.pry
     end
+
     def new
         @post = Post.new
     end
@@ -14,6 +16,10 @@ class PostsController < ApplicationController
         else
             render :new
         end
+    end
+
+    def show
+        @post = Post.find_by(id: params[:id])
     end
 
 
