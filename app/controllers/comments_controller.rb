@@ -4,9 +4,10 @@ class CommentsController < ApplicationController
         # how to check if its nested?
         if params[:post_id] && @post = Post.find_by_id(params[:post_id]) #then its nested
             @comments = @post.comments
-        else
-            @error = "That post doesn't exist"
-        @comments = Comment.all
+            else
+                @error = "That post doesn't exist"
+                @comments = Comment.all
+        end
     end
 
     def new
@@ -34,4 +35,9 @@ class CommentsController < ApplicationController
         @comment = Comment.find_by(id: params(:id))
     end
     
+    private
+
+    def comment_params
+        params.require(:comment).permit(:content)
+    end
 end
