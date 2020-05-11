@@ -1,5 +1,5 @@
-<% if @post %>
-<h1>New Comment for <%= @post.title %>!</h1>
+<% if @comment.post %>
+<h1>New Comment for <%= @comment.post.title %>!</h1>
 <% else %>
 <h1>New Comment</h1>
 <% end %>
@@ -16,9 +16,9 @@
     </div>
 <% end %>
 
-<%= form_for([@post, @comment]) do |f| %>
+<%= form_for([@comment.post, @comment]) do |f| %>
 
-    <%  if !@post %>
+    <%  if !@comment.post %>
         <%= f.label :post %>
         <%= f.collection_select :post_id, Post.all, :id, :title %>
     <% else %>
