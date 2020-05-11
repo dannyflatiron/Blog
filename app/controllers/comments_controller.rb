@@ -15,6 +15,18 @@ class CommentsController < ApplicationController
         else
             render :new
         end
-
     end
+
+    def show 
+        @comment = Comment.find_by(id: params[:id])
+    end
+
+    def edit
+        @comment = Comment.find_by(id: params[:id])
+    end
+
+    def update
+        @comment = Comment.find_by(id: params(:id))
+    end
+    
 end
