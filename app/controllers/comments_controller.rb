@@ -5,13 +5,20 @@ class CommentsController < ApplicationController
         if params[:post_id] && @post = Post.find_by_id(params[:post_id]) #then its nested
             @comments = @post.comments
             else
-                @error = "That post doesn't exist"
+                @error = "That post doesn't exist" if params[:post_id]
                 @comments = Comment.all
         end
     end
 
     def new
-        @comment = Comment.new
+        # if nested and if post is found
+        if params[:post_id] && @post = Post.find_by_id(params[:post_id]) #then its nested
+            @comment = @post.comments.build
+        else
+            @error = "That post doesn't exist" if params[:post_id]
+            @comment = Comment.new
+        end
+        
     end
 
     def create
@@ -38,6 +45,6 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:content)
+        params.require(:comment).permit(:content, :post_id)
     end
 end
