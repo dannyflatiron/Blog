@@ -6,7 +6,7 @@ class PostsController < ApplicationController
             @posts = @user.posts
         else
             @error = "That user doesn't exist" if params[:user_id]
-            @posts = Post.all
+            @posts = Post.organize
         end
     end
 
