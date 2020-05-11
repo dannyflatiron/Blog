@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   # Google omniauth callback route
-  get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/auth/:provider/callback' => 'sessions#google'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
