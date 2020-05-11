@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
     has_secure_password 
     #gives access to authenticate method, built in validations such as validate password, password confirmation
+
+
 end
