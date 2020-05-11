@@ -1,9 +1,9 @@
 <h1>All Comments</h1>
 
 <ul>
+    <% @comments.each do |comment| %>
     <li>
-        <% @comments.each do |comment| %>
-        <%= comment.user.username %> says "<%= comment.content %>" about this post:<%= link_to "comment.post.title", post_path(comment)%>
-        <% end %>
+        <%= comment.user.username %> says "<%= comment.content %>" about this post:<%= link_to comment.post.title, post_path(comment)%>
     </li>
+    <% end %>
 </ul>
