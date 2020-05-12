@@ -3,7 +3,9 @@
 <ul>
     <% @comments.each do |comment| %>
     <li>
-        <%= comment.user.username %> says "<%= comment.content %>" about this post: <%= link_to "Edit comment here", edit_comment_url(comment, comment.id)%>
+        <%= comment.user.username %> says "<%= comment.content %>" about this post: <%= link_to comment.post.title, post_path(comment)%>.
+        <br>
+        Edit Comment <%= link_to "here", edit_comment_url(comment, comment.id)%><br><br>
     </li>
     <% end %>
 </ul>
