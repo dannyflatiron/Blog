@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    #helper_method gives access to these methods in the views
     helper_method :current_user, :logged_in?
 
     private 

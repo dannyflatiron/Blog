@@ -11,7 +11,6 @@ class PostsController < ApplicationController
             @posts = Post.organize
         end
         @posts = @posts.search(params[:q].downcase) if params[:q] && !params[:q].empty?
-
     end
 
     def new

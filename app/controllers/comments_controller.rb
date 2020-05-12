@@ -4,8 +4,7 @@ class CommentsController < ApplicationController
     before_action :redirect_if_not_comment_author, only: [:show, :edit, :update]
 
     def index
-        # how to check if its nested?
-        if params[:post_id] && @post = Post.find_by_id(params[:post_id]) #then its nested
+        if params[:post_id] && @post = Post.find_by_id(params[:post_id]) 
             @comments = @post.comments
             else
                 @error = "That post doesn't exist" if params[:post_id]
@@ -14,14 +13,12 @@ class CommentsController < ApplicationController
     end
 
     def new
-        # if nested and if post is found
-        if params[:post_id] && @post = Post.find_by_id(params[:post_id]) #then its nested
+        if params[:post_id] && @post = Post.find_by_id(params[:post_id]) 
             @comment = @post.comments.build
         else
             @error = "That post doesn't exist" if params[:post_id]
             @comment = Comment.new
-        end
-        
+        end 
     end
 
     def create
