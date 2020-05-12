@@ -7,5 +7,5 @@ module PostsHelper
             content_tag(:h2, "All Posts")
         end 
     end
-
+    
 end
