@@ -10,6 +10,8 @@ class PostsController < ApplicationController
             @error = "That user doesn't exist" if params[:user_id]
             @posts = Post.organize
         end
+        @posts = @posts.search(params[:q].downcase) if params[:q] && !params[:q].empty?
+
     end
 
     def new
