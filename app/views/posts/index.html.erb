@@ -1,5 +1,11 @@
 <h1><%= index_display_header %></h1>
 
+<%= form_tag("/posts", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <% if @posts.empty? %>
     <h2>No posts yet. Write a post <%= link_to 'here', new_post_path %></h2>
 
