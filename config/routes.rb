@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users do
     # /users/id/posts 
     resources :posts, only: [:new, :create, :index]
+    resources :comments, only: [:index]
   end
 
   
