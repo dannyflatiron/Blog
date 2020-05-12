@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @posts = @user.posts
+            @posts = @user.posts.most_comments
         else
             @error = "That user doesn't exist" if params[:user_id]
             @posts = Post.organize
