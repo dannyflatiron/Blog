@@ -18,12 +18,12 @@ Rails.application.routes.draw do
   resources :users do
     # /users/id/posts 
     resources :posts, only: [:new, :create, :index]
-    resources :comments, only: [:index]
+    resources :comments, only: [:index, :show]
   end
 
   
   resources :posts do
-    resources :comments, only: [:new, :create, :index]
+    resources :comments, only: [:new, :create, :index, :edit, :update]
   end
 
   # Google omniauth callback route
