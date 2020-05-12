@@ -5,14 +5,14 @@ class Post < ApplicationRecord
   has_many :users, through: :comments
   validates :content, :title, presence: true
   validate :too_many_posts
-
   # Scope Methods
 
   # orders posts title alphabetically
   scope :organize, -> { order(:title)}
 
   # orders posts by most comments in descending order
-  scope :most_comments, -> {left_joins(:comments).group('posts.id').order('count(posts.id) desc')}
+  # how to show posts with zero comments?
+  scope :most_comments, -> {joins(:comments).group('posts.id').order('count(posts.id) desc')}
 
   # custom validations
   def too_many_posts
