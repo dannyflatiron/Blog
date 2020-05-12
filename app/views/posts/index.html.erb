@@ -1,6 +1,6 @@
 <h1><%= index_display_header %></h1>
 
-<%= form_tag("/posts", method: "get") do %>
+<%= form_tag("/posts", method: 'get') do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
