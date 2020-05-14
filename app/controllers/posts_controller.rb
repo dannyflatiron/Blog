@@ -61,4 +61,8 @@ class PostsController < ApplicationController
     def redirect_if_not_post
         redirect_to posts_path if !@post || @post.user != current_user
     end
+
+
+      
+
 end

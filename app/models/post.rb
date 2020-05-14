@@ -33,4 +33,6 @@ class Post < ApplicationRecord
       errors.add(:post_id, "can't post more than 4 times per day")
      end
   end
+
+
 end

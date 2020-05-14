@@ -1,7 +1,9 @@
 <h1><%= @post.title %></h1>
 <h2>By: <%= @post.user.username %></h2>
 
-<div><%= @post.content %></div>
+<div>Encoded Message: <%= morse_encode(@post.content) %> Decoded Message: <%= @post.content %> </div>
+
+<p><%= link_to "Encode this message", post_encoded_path(@post)%></p>
 
 <% if @post.user == current_user %>
 <p><%= link_to "Edit Post", edit_post_path(@post)%></p>
@@ -15,3 +17,5 @@
     <li><strong><%= c.user.username %></strong> says "<%= link_to c.content, comment_path(c) %>" </li>
 <% end %>
 <br>
+
+

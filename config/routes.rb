@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
+
   #login routes
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     resources :comments, only: [:new, :create, :index, :edit, :update]
+    resources :encoded, only: [:show]
   end
 
   # Google omniauth callback route
