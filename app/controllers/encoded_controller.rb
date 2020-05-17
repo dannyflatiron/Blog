@@ -6,6 +6,7 @@ class EncodedController < ApplicationController
     def show
         if params[:post_id] && @post = Post.find_by_id(params[:post_id])
             @encoded_message = @post.content
+            @user = @post.user.username
         else
         end
     end

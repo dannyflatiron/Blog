@@ -30,5 +30,8 @@ Rails.application.routes.draw do
   # Google omniauth callback route
   get '/auth/:provider/callback' => 'sessions#google'
 
+  post '/users/:id/message' => 'users#message'
+  post '/posts/message' => 'users#message'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

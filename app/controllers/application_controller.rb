@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   "w" => ".--",
   "x" => "-..-",
   "y" => "-.--",
-  "z" => "--.."
+  "z" => "--..",
   "0" => "-----",
   "1" => ".----",
   "2" => "..---",
@@ -147,12 +147,13 @@ class ApplicationController < ActionController::Base
             phrase << "7"
           when "---.."
             phrase << "8" 
-          end
           when "----."
             phrase << "9"
+          end
         end
         phrase
       end
       result.join(" ")
-    end 
+    end
+     
 end

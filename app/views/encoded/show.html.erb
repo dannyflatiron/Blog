@@ -2,3 +2,16 @@
 <br>
 <h1>Encoded Message: <%= morse_encode(@encoded_message)%></h1>
 <br>
+<%= @user %>
+
+
+<h5>Send encoded message to </h5>
+<div>
+<%= form_tag("/posts/#{@post_id}/message") do %>
+
+    <label>Send your encoded message here:</label><br>
+    <%= text_area_tag :content %><br>
+    <%= submit_tag "Send secret message" %>
+
+<% end %>
+</div>

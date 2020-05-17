@@ -21,6 +21,17 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end
 
+    def message
+        # @receiver = Post.find_by(id: params[:id])
+        binding.pry
+        @sender = current_user
+        @message = params[:content]
+
+        #send an email
+        SecretMessageMailer.secret_message(@receiver, @sender, @message).deliver_now
+        redirect_to user_path
+    end
+
     private
 
     def user_params
